@@ -1,0 +1,363 @@
+==================
+Class interface: Empty
+==================
+
+@interface ClassName
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)))
+
+
+==================
+Class interface: Superclass
+==================
+
+@interface ClassName: SuperclassName
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    superclass: (identifier)))
+
+
+==================
+Class interface: Protocol reference list
+==================
+
+@interface ClassName<Protocol1, Protocol2>
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (protocol_reference_list
+      (identifier)
+      (identifier))))
+
+
+==================
+Class interface: Instance Variables
+==================
+
+@interface ClassName {
+  type1 iv1;
+  type2 iv2;
+}
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (instance_variables
+      (instance_variable_declaration
+        (field_declaration
+          type: (type_identifier)
+          declarator: (field_identifier)))
+      (instance_variable_declaration
+        (field_declaration
+          type: (type_identifier)
+          declarator: (field_identifier))))))
+
+
+==================
+Class method declaration: keyword selector
+==================
+
+@interface ClassName
++ (tr)k1: (t1)a1 : (t2)a2 k2: a3;
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (interface_declaration_list
+      (class_method_declaration
+        return_type: (type_descriptor
+          type: (type_identifier))
+        selector: (keyword_selector
+          (keyword_declarator
+            keyword: (identifier)
+            type: (type_descriptor
+                type: (type_identifier))
+            name: (identifier))
+          (keyword_declarator
+            type: (type_descriptor
+                type: (type_identifier))
+            name: (identifier))
+          (keyword_declarator
+            keyword: (identifier)
+            name: (identifier)))))))
+
+
+==================
+Instance method declaration: unary selector
+==================
+
+@interface ClassName
+- (rt) sel;
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (interface_declaration_list
+      (instance_method_declaration
+        return_type: (type_descriptor
+          type: (type_identifier))
+        selector: (unary_selector
+          (identifier))))))
+
+
+==================
+Empty class interface with superclass
+==================
+
+@interface ClassName: SuperclassName
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    superclass: (identifier)))
+
+
+==================
+Class implementation: Empty
+==================
+
+@implementation ClassName
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)))
+
+
+==================
+Class implementation: Superclass
+==================
+
+@implementation ClassName: SuperclassName
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    superclass: (identifier)))
+
+
+==================
+Class implementation: Instance variable
+==================
+
+@implementation ClassName {
+  type1 iv1;
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (instance_variables
+      (instance_variable_declaration
+        (field_declaration
+          type: (type_identifier)
+          declarator: (field_identifier))))))
+
+
+==================
+Instance variables: visibility specification
+==================
+
+@implementation ClassName {
+  @public
+  type2 iv2;
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (instance_variables
+      (instance_variable_declaration
+        (public))
+      (instance_variable_declaration
+        (field_declaration
+          type: (type_identifier)
+          declarator: (field_identifier))))))
+
+
+==================
+Class implementation: Class method with keyword selector
+==================
+
+@implementation ClassName
++ (tr)k1: (in t1)a1 : (t2)a2 k2: a3 {
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (class_method_definition
+        return_type: (type_descriptor
+          type: (type_identifier))
+        selector: (keyword_selector
+          (keyword_declarator
+            keyword: (identifier)
+            type: (type_descriptor
+                (type_qualifier (protocol_qualifier))
+                type: (type_identifier))
+            name: (identifier))
+          (keyword_declarator
+            type: (type_descriptor
+                type: (type_identifier))
+            name: (identifier))
+          (keyword_declarator
+            keyword: (identifier)
+            name: (identifier)))
+        body: (compound_statement)))))
+
+
+==================
+Class implementation: Instance method with unary selector
+==================
+
+@implementation ClassName
+- (rt) sel {
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        return_type: (type_descriptor
+          type: (type_identifier))
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement)))))
+
+
+==================
+Category interface: Empty
+==================
+
+@interface ClassName(Category)
+@end
+
+---
+
+(translation_unit
+  (category_interface
+    name: (identifier)
+    category: (identifier)))
+
+
+==================
+Category interface: Protocol reference list
+==================
+
+@interface ClassName(Category)<P1, P2>
+@end
+
+---
+
+(translation_unit
+  (category_interface
+    name: (identifier)
+    category: (identifier)
+    (protocol_reference_list
+      (identifier)
+      (identifier))))
+
+
+==================
+Category implementation
+==================
+
+@implementation ClassName(Category)
+@end
+
+---
+
+(translation_unit
+  (category_implementation
+    name: (identifier)
+    category: (identifier)))
+
+
+==================
+Protocol declaration
+==================
+
+@protocol Protocol<P1, P2>
+@end
+
+---
+
+(translation_unit
+  (protocol_declaration
+    name: (identifier)
+    (protocol_reference_list
+      (identifier)
+      (identifier))))
+
+
+==================
+Protocol declaration list
+==================
+
+@protocol <P1, P2>;
+
+---
+
+(translation_unit
+  (protocol_declaration_list
+    (identifier)
+    (identifier)))
+
+
+==================
+Class declaration list
+==================
+
+@class C1, C2;
+
+---
+
+(translation_unit
+  (class_declaration_list
+    (identifier)
+    (identifier)))

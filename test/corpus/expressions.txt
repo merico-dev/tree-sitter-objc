@@ -1,0 +1,212 @@
+==================
+Self
+==================
+
+@implementation ClassName
+- sel {
+    self;
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (self)
+
+            ))))))
+
+
+==================
+Message expression: super receiver
+==================
+
+@implementation ClassName
+- sel {
+    [super sel];
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (message_expression
+                    (receiver
+                        (super))
+                    (message_selector
+                        (identifier)))
+
+            ))))))
+
+
+==================
+Message expression: keyword arguments
+==================
+
+@implementation ClassName
+- sel {
+    [obj k1: a1 k2: a2];
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (message_expression
+                    (receiver
+                        (identifier))
+                    (message_selector
+                        (keyword_argument_list
+                            (keyword_argument
+                                keyword: (identifier)
+                                argument: (identifier))
+                            (keyword_argument
+                                keyword: (identifier)
+                                argument: (identifier)))))
+
+            ))))))
+
+
+==================
+Message expression: anonymous keyword
+==================
+
+@implementation ClassName
+- sel {
+    [obj : a2];
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (message_expression
+                    (receiver
+                        (identifier))
+                    (message_selector
+                        (keyword_argument_list
+                            (keyword_argument
+                                argument: (identifier)))))
+
+            ))))))
+
+
+==================
+Selector expression
+==================
+
+@implementation ClassName
+- sel {
+    @selector(foo::);
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (selector_expression
+                    (keyword_name
+                        (identifier))
+                    (keyword_name))
+
+            ))))))
+
+
+==================
+Protocol expression
+==================
+
+@implementation ClassName
+- sel {
+    @protocol(P1);
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (protocol_expression
+                    (identifier))
+
+            ))))))
+
+
+==================
+Encode expression
+==================
+
+@implementation ClassName
+- sel {
+    @encode(id);
+}
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (implementation_definition_list
+      (instance_method_definition
+        selector: (unary_selector
+          (identifier))
+        body: (compound_statement
+            (expression_statement
+
+                (encode_expression
+                    (identifier))
+
+            ))))))

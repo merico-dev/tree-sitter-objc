@@ -1,0 +1,24 @@
+{
+  "name": "tree-sitter-objc",
+  "version": "0.0.1",
+  "description": "A tree-sitter parser for objective-C",
+  "main": "index.js",
+  "keywords": [
+    "parser",
+    "objective-c",
+    "tree-sitter"
+  ],
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test && tree-sitter parse examples/* --quiet --time"
+  },
+  "author": "Merico",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.14.1"
+  },
+  "devDependencies": {
+    "tree-sitter-c": "^0.16.1",
+    "tree-sitter-cli": "^0.16.7"
+  }
+}
