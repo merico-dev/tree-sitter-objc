@@ -6535,7 +6535,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "interface_declaration_list"
+              "name": "_interface_declaration_list"
             },
             {
               "type": "BLANK"
@@ -6592,7 +6592,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "interface_declaration_list"
+              "name": "_interface_declaration_list"
             },
             {
               "type": "BLANK"
@@ -6633,7 +6633,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "interface_declaration_list"
+              "name": "_interface_declaration_list"
             },
             {
               "type": "BLANK"
@@ -6838,7 +6838,7 @@
       "type": "STRING",
       "value": "@protected"
     },
-    "interface_declaration_list": {
+    "_interface_declaration_list": {
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
@@ -6985,7 +6985,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "implementation_definition_list"
+              "name": "_implementation_definition_list"
             },
             {
               "type": "BLANK"
@@ -7030,7 +7030,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "implementation_definition_list"
+              "name": "_implementation_definition_list"
             },
             {
               "type": "BLANK"
@@ -7043,7 +7043,7 @@
         }
       ]
     },
-    "implementation_definition_list": {
+    "_implementation_definition_list": {
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",

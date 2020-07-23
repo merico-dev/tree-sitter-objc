@@ -832,11 +832,23 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "implementation_definition_list",
+          "type": "class_method_definition",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "instance_method_definition",
           "named": true
         }
       ]
@@ -878,11 +890,19 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "interface_declaration_list",
+          "type": "class_method_declaration",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "instance_method_declaration",
           "named": true
         }
       ]
@@ -948,11 +968,23 @@
       "required": false,
       "types": [
         {
+          "type": "class_method_definition",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
           "type": "field_declaration",
           "named": true
         },
         {
-          "type": "implementation_definition_list",
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "instance_method_definition",
           "named": true
         },
         {
@@ -1010,11 +1042,19 @@
       "required": false,
       "types": [
         {
+          "type": "class_method_declaration",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
           "type": "field_declaration",
           "named": true
         },
         {
-          "type": "interface_declaration_list",
+          "type": "instance_method_declaration",
           "named": true
         },
         {
@@ -1966,33 +2006,6 @@
     }
   },
   {
-    "type": "implementation_definition_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "class_method_definition",
-          "named": true
-        },
-        {
-          "type": "declaration",
-          "named": true
-        },
-        {
-          "type": "function_definition",
-          "named": true
-        },
-        {
-          "type": "instance_method_definition",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "init_declarator",
     "named": true,
     "fields": {
@@ -2194,29 +2207,6 @@
       "types": [
         {
           "type": "declaration_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "interface_declaration_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "class_method_declaration",
-          "named": true
-        },
-        {
-          "type": "declaration",
-          "named": true
-        },
-        {
-          "type": "instance_method_declaration",
           "named": true
         }
       ]
@@ -3380,11 +3370,19 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "interface_declaration_list",
+          "type": "class_method_declaration",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "instance_method_declaration",
           "named": true
         }
       ]

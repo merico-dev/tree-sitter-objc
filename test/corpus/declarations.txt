@@ -80,23 +80,22 @@ Class method declaration: keyword selector
 (translation_unit
   (class_interface
     name: (identifier)
-    (interface_declaration_list
-      (class_method_declaration
-        return_type: (type_descriptor
-          type: (type_identifier))
-        selector: (keyword_selector
-          (keyword_declarator
-            keyword: (identifier)
-            type: (type_descriptor
-                type: (type_identifier))
-            name: (identifier))
-          (keyword_declarator
-            type: (type_descriptor
-                type: (type_identifier))
-            name: (identifier))
-          (keyword_declarator
-            keyword: (identifier)
-            name: (identifier)))))))
+    (class_method_declaration
+      return_type: (type_descriptor
+        type: (type_identifier))
+      selector: (keyword_selector
+        (keyword_declarator
+          keyword: (identifier)
+          type: (type_descriptor
+              type: (type_identifier))
+          name: (identifier))
+        (keyword_declarator
+          type: (type_descriptor
+              type: (type_identifier))
+          name: (identifier))
+        (keyword_declarator
+          keyword: (identifier)
+          name: (identifier))))))
 
 
 ==================
@@ -112,12 +111,11 @@ Instance method declaration: unary selector
 (translation_unit
   (class_interface
     name: (identifier)
-    (interface_declaration_list
-      (instance_method_declaration
-        return_type: (type_descriptor
-          type: (type_identifier))
-        selector: (unary_selector
-          (identifier))))))
+    (instance_method_declaration
+      return_type: (type_descriptor
+        type: (type_identifier))
+      selector: (unary_selector
+        (identifier)))))
 
 
 ==================
@@ -218,25 +216,24 @@ Class implementation: Class method with keyword selector
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
-      (class_method_definition
-        return_type: (type_descriptor
-          type: (type_identifier))
-        selector: (keyword_selector
-          (keyword_declarator
-            keyword: (identifier)
-            type: (type_descriptor
-                (type_qualifier (protocol_qualifier))
-                type: (type_identifier))
-            name: (identifier))
-          (keyword_declarator
-            type: (type_descriptor
-                type: (type_identifier))
-            name: (identifier))
-          (keyword_declarator
-            keyword: (identifier)
-            name: (identifier)))
-        body: (compound_statement)))))
+    (class_method_definition
+      return_type: (type_descriptor
+        type: (type_identifier))
+      selector: (keyword_selector
+        (keyword_declarator
+          keyword: (identifier)
+          type: (type_descriptor
+              (type_qualifier (protocol_qualifier))
+              type: (type_identifier))
+          name: (identifier))
+        (keyword_declarator
+          type: (type_descriptor
+              type: (type_identifier))
+          name: (identifier))
+        (keyword_declarator
+          keyword: (identifier)
+          name: (identifier)))
+      body: (compound_statement))))
 
 
 ==================
@@ -253,13 +250,12 @@ Class implementation: Instance method with unary selector
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
-      (instance_method_definition
-        return_type: (type_descriptor
-          type: (type_identifier))
-        selector: (unary_selector
-          (identifier))
-        body: (compound_statement)))))
+    (instance_method_definition
+      return_type: (type_descriptor
+        type: (type_identifier))
+      selector: (unary_selector
+        (identifier))
+      body: (compound_statement))))
 
 
 ==================

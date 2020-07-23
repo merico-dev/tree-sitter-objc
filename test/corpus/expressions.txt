@@ -13,16 +13,15 @@ Self
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (self)
+            (self)
 
-            ))))))
+          )))))
 
 
 ==================
@@ -40,20 +39,19 @@ Message expression: super receiver
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (message_expression
-                    (receiver
-                        (super))
-                    (message_selector
-                        (identifier)))
+            (message_expression
+              (receiver
+                (super))
+              (message_selector
+                (identifier)))
 
-            ))))))
+          )))))
 
 
 ==================
@@ -71,26 +69,25 @@ Message expression: keyword arguments
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (message_expression
-                    (receiver
-                        (identifier))
-                    (message_selector
-                        (keyword_argument_list
-                            (keyword_argument
-                                keyword: (identifier)
-                                argument: (identifier))
-                            (keyword_argument
-                                keyword: (identifier)
-                                argument: (identifier)))))
+            (message_expression
+              (receiver
+                (identifier))
+              (message_selector
+                (keyword_argument_list
+                  (keyword_argument
+                    keyword: (identifier)
+                    argument: (identifier))
+                  (keyword_argument
+                    keyword: (identifier)
+                    argument: (identifier)))))
 
-            ))))))
+          )))))
 
 
 ==================
@@ -108,22 +105,21 @@ Message expression: anonymous keyword
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (message_expression
-                    (receiver
-                        (identifier))
-                    (message_selector
-                        (keyword_argument_list
-                            (keyword_argument
-                                argument: (identifier)))))
+            (message_expression
+              (receiver
+                (identifier))
+              (message_selector
+                (keyword_argument_list
+                  (keyword_argument
+                    argument: (identifier)))))
 
-            ))))))
+          )))))
 
 
 ==================
@@ -141,19 +137,18 @@ Selector expression
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (selector_expression
-                    (keyword_name
-                        (identifier))
-                    (keyword_name))
+            (selector_expression
+              (keyword_name
+                (identifier))
+              (keyword_name))
 
-            ))))))
+          )))))
 
 
 ==================
@@ -171,17 +166,16 @@ Protocol expression
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (protocol_expression
-                    (identifier))
+            (protocol_expression
+              (identifier))
 
-            ))))))
+          )))))
 
 
 ==================
@@ -199,14 +193,13 @@ Encode expression
 (translation_unit
   (class_implementation
     name: (identifier)
-    (implementation_definition_list
       (instance_method_definition
         selector: (unary_selector
           (identifier))
         body: (compound_statement
-            (expression_statement
+          (expression_statement
 
-                (encode_expression
-                    (identifier))
+            (encode_expression
+              (identifier))
 
-            ))))))
+          )))))

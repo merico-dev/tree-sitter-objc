@@ -36,21 +36,21 @@ module.exports = grammar(C, {
       '@interface', $._name, optional($._superclass_reference),
       optional($._protocols),
       optional($._instance_variables),
-      optional($.interface_declaration_list),
+      optional($._interface_declaration_list),
       '@end'
     ),
 
     category_interface: $ => seq(
       '@interface', $._name, '(', field('category', $.identifier),')',
       optional($._protocols),
-      optional($.interface_declaration_list),
+      optional($._interface_declaration_list),
       '@end'
     ),
 
     protocol_declaration: $ => seq(
       '@protocol', $._name,
       optional($._protocols),
-      optional($.interface_declaration_list),
+      optional($._interface_declaration_list),
       '@end'
     ),
 
@@ -89,7 +89,7 @@ module.exports = grammar(C, {
 
     protected: $ => '@protected',
 
-    interface_declaration_list: $ => repeat1($._interface_declaration),
+    _interface_declaration_list: $ => repeat1($._interface_declaration),
 
     _interface_declaration: $ => choice(
       $.declaration,
@@ -120,17 +120,17 @@ module.exports = grammar(C, {
     class_implementation: $ => seq(
       '@implementation', $._name, optional($._superclass_reference),
       optional($._instance_variables),
-      optional($.implementation_definition_list),
+      optional($._implementation_definition_list),
       '@end'
     ),
 
     category_implementation: $ => seq(
       '@implementation', $._name, '(', field('category', $.identifier),')',
-      optional($.implementation_definition_list),
+      optional($._implementation_definition_list),
       '@end'
     ),
 
-    implementation_definition_list: $ => repeat1($._implementation_definition),
+    _implementation_definition_list: $ => repeat1($._implementation_definition),
 
     _implementation_definition: $ => choice(
       $.function_definition,
