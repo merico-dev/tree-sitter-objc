@@ -6511,7 +6511,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "protocol_reference_list"
+              "name": "_protocols"
             },
             {
               "type": "BLANK"
@@ -6580,7 +6580,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "protocol_reference_list"
+              "name": "_protocols"
             },
             {
               "type": "BLANK"
@@ -6621,7 +6621,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "protocol_reference_list"
+              "name": "_protocols"
             },
             {
               "type": "BLANK"
@@ -6729,6 +6729,14 @@
           "value": ";"
         }
       ]
+    },
+    "_protocols": {
+      "type": "FIELD",
+      "name": "protocols",
+      "content": {
+        "type": "SYMBOL",
+        "name": "protocol_reference_list"
+      }
     },
     "protocol_reference_list": {
       "type": "SEQ",
@@ -7332,7 +7340,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "protocol_reference_list"
+          "name": "_protocols"
         }
       ]
     },

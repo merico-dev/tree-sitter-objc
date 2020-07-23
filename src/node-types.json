@@ -865,18 +865,24 @@
             "named": true
           }
         ]
+      },
+      "protocols": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "protocol_reference_list",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "interface_declaration_list",
-          "named": true
-        },
-        {
-          "type": "protocol_reference_list",
           "named": true
         }
       ]
@@ -966,6 +972,16 @@
           }
         ]
       },
+      "protocols": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "protocol_reference_list",
+            "named": true
+          }
+        ]
+      },
       "superclass": {
         "multiple": false,
         "required": false,
@@ -987,10 +1003,6 @@
         },
         {
           "type": "interface_declaration_list",
-          "named": true
-        },
-        {
-          "type": "protocol_reference_list",
           "named": true
         }
       ]
@@ -3373,18 +3385,24 @@
             "named": true
           }
         ]
+      },
+      "protocols": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "protocol_reference_list",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "interface_declaration_list",
-          "named": true
-        },
-        {
-          "type": "protocol_reference_list",
           "named": true
         }
       ]
@@ -3443,17 +3461,24 @@
   {
     "type": "protocol_type_specifier",
     "named": true,
-    "fields": {},
+    "fields": {
+      "protocols": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "protocol_reference_list",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "protocol_reference_list",
           "named": true
         }
       ]

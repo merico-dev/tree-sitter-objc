@@ -39,7 +39,7 @@ Class interface: Protocol reference list
 (translation_unit
   (class_interface
     name: (identifier)
-    (protocol_reference_list
+    protocols: (protocol_reference_list
       (identifier)
       (identifier))))
 
@@ -298,7 +298,7 @@ Category interface: Protocol reference list
   (category_interface
     name: (identifier)
     category: (identifier)
-    (protocol_reference_list
+    protocols: (protocol_reference_list
       (identifier)
       (identifier))))
 
@@ -330,7 +330,7 @@ Protocol declaration
 (translation_unit
   (protocol_declaration
     name: (identifier)
-    (protocol_reference_list
+    protocols: (protocol_reference_list
       (identifier)
       (identifier))))
 

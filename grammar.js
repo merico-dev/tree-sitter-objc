@@ -34,7 +34,7 @@ module.exports = grammar(C, {
 
     class_interface: $ => seq(
       '@interface', $._name, optional($._superclass_reference),
-      optional($.protocol_reference_list),
+      optional($._protocols),
       optional($.instance_variables),
       optional($.interface_declaration_list),
       '@end'
@@ -42,14 +42,14 @@ module.exports = grammar(C, {
 
     category_interface: $ => seq(
       '@interface', $._name, '(', field('category', $.identifier),')',
-      optional($.protocol_reference_list),
+      optional($._protocols),
       optional($.interface_declaration_list),
       '@end'
     ),
 
     protocol_declaration: $ => seq(
       '@protocol', $._name,
-      optional($.protocol_reference_list),
+      optional($._protocols),
       optional($.interface_declaration_list),
       '@end'
     ),
@@ -61,6 +61,8 @@ module.exports = grammar(C, {
     class_declaration_list: $ => seq(
       '@class', commaSep1($.identifier), ';'
     ),
+
+    _protocols: $ => field('protocols', $.protocol_reference_list),
 
     protocol_reference_list: $ => seq(
       '<', commaSep1($.identifier), '>'
@@ -190,7 +192,7 @@ module.exports = grammar(C, {
     ),
 
     protocol_type_specifier: $ => seq(
-      $.identifier, $.protocol_reference_list
+      $.identifier, $._protocols
     ),
 
     struct_specifier: ($, original) => choice(
