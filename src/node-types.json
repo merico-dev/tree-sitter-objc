@@ -948,11 +948,23 @@
       "required": false,
       "types": [
         {
+          "type": "field_declaration",
+          "named": true
+        },
+        {
           "type": "implementation_definition_list",
           "named": true
         },
         {
-          "type": "instance_variables",
+          "type": "private",
+          "named": true
+        },
+        {
+          "type": "protected",
+          "named": true
+        },
+        {
+          "type": "public",
           "named": true
         }
       ]
@@ -998,11 +1010,23 @@
       "required": false,
       "types": [
         {
-          "type": "instance_variables",
+          "type": "field_declaration",
           "named": true
         },
         {
           "type": "interface_declaration_list",
+          "named": true
+        },
+        {
+          "type": "private",
+          "named": true
+        },
+        {
+          "type": "protected",
+          "named": true
+        },
+        {
+          "type": "public",
           "named": true
         }
       ]
@@ -2170,48 +2194,6 @@
       "types": [
         {
           "type": "declaration_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "instance_variable_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "field_declaration",
-          "named": true
-        },
-        {
-          "type": "private",
-          "named": true
-        },
-        {
-          "type": "protected",
-          "named": true
-        },
-        {
-          "type": "public",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "instance_variables",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "instance_variable_declaration",
           "named": true
         }
       ]

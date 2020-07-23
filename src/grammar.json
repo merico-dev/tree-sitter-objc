@@ -6523,7 +6523,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "instance_variables"
+              "name": "_instance_variables"
             },
             {
               "type": "BLANK"
@@ -6776,7 +6776,7 @@
         }
       ]
     },
-    "instance_variables": {
+    "_instance_variables": {
       "type": "SEQ",
       "members": [
         {
@@ -6787,7 +6787,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "instance_variable_declaration"
+            "name": "_instance_variable_declaration"
           }
         },
         {
@@ -6796,7 +6796,7 @@
         }
       ]
     },
-    "instance_variable_declaration": {
+    "_instance_variable_declaration": {
       "type": "CHOICE",
       "members": [
         {
@@ -6973,7 +6973,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "instance_variables"
+              "name": "_instance_variables"
             },
             {
               "type": "BLANK"

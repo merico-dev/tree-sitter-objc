@@ -59,15 +59,12 @@ Class interface: Instance Variables
 (translation_unit
   (class_interface
     name: (identifier)
-    (instance_variables
-      (instance_variable_declaration
-        (field_declaration
-          type: (type_identifier)
-          declarator: (field_identifier)))
-      (instance_variable_declaration
-        (field_declaration
-          type: (type_identifier)
-          declarator: (field_identifier))))))
+    (field_declaration
+      type: (type_identifier)
+      declarator: (field_identifier))
+    (field_declaration
+      type: (type_identifier)
+      declarator: (field_identifier))))
 
 
 ==================
@@ -181,11 +178,9 @@ Class implementation: Instance variable
 (translation_unit
   (class_implementation
     name: (identifier)
-    (instance_variables
-      (instance_variable_declaration
-        (field_declaration
-          type: (type_identifier)
-          declarator: (field_identifier))))))
+    (field_declaration
+      type: (type_identifier)
+      declarator: (field_identifier))))
 
 
 ==================
@@ -203,13 +198,10 @@ Instance variables: visibility specification
 (translation_unit
   (class_implementation
     name: (identifier)
-    (instance_variables
-      (instance_variable_declaration
-        (public))
-      (instance_variable_declaration
-        (field_declaration
-          type: (type_identifier)
-          declarator: (field_identifier))))))
+    (public)
+    (field_declaration
+      type: (type_identifier)
+      declarator: (field_identifier))))
 
 
 ==================

@@ -35,7 +35,7 @@ module.exports = grammar(C, {
     class_interface: $ => seq(
       '@interface', $._name, optional($._superclass_reference),
       optional($._protocols),
-      optional($.instance_variables),
+      optional($._instance_variables),
       optional($.interface_declaration_list),
       '@end'
     ),
@@ -68,11 +68,11 @@ module.exports = grammar(C, {
       '<', commaSep1($.identifier), '>'
     ),
 
-    instance_variables: $ => seq(
-      '{', repeat1($.instance_variable_declaration) ,'}'
+    _instance_variables: $ => seq(
+      '{', repeat1($._instance_variable_declaration) ,'}'
     ),
 
-    instance_variable_declaration: $ => choice(
+    _instance_variable_declaration: $ => choice(
       $._visibility_specification,
       $.field_declaration
     ),
@@ -119,7 +119,7 @@ module.exports = grammar(C, {
 
     class_implementation: $ => seq(
       '@implementation', $._name, optional($._superclass_reference),
-      optional($.instance_variables),
+      optional($._instance_variables),
       optional($.implementation_definition_list),
       '@end'
     ),
