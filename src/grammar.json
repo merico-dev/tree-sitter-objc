@@ -7191,7 +7191,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "unary_selector"
+          "name": "_unary_selector"
         },
         {
           "type": "SEQ",
@@ -7258,7 +7258,7 @@
         }
       ]
     },
-    "unary_selector": {
+    "_unary_selector": {
       "type": "SYMBOL",
       "name": "identifier"
     },

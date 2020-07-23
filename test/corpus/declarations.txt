@@ -114,8 +114,7 @@ Instance method declaration: unary selector
     (instance_method_declaration
       return_type: (type_descriptor
         type: (type_identifier))
-      selector: (unary_selector
-        (identifier)))))
+      selector: (identifier))))
 
 
 ==================
@@ -253,8 +252,7 @@ Class implementation: Instance method with unary selector
     (instance_method_definition
       return_type: (type_descriptor
         type: (type_identifier))
-      selector: (unary_selector
-        (identifier))
+      selector: (identifier)
       body: (compound_statement))))
 
 

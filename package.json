@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "tree-sitter-c": "^0.16.1",
-    "tree-sitter-cli": "^0.16.7"
+    "tree-sitter-cli": "0.16.7"
   }
 }

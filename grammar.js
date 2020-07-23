@@ -162,14 +162,14 @@ module.exports = grammar(C, {
     // Selectors
 
     _method_selector: $ => choice(
-      $.unary_selector,
+      $._unary_selector,
       seq(
         $.keyword_selector,
         optional(commaSep1($.parameter_declaration)),
         optional(seq(',', '...'))),
     ),
 
-    unary_selector: $ => $.identifier,
+    _unary_selector: $ => $.identifier,
 
     keyword_selector: $ => repeat1($.keyword_declarator),
 

@@ -14,8 +14,7 @@ Self
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -40,8 +39,7 @@ Message expression: super receiver
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -70,8 +68,7 @@ Message expression: keyword arguments
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -106,8 +103,7 @@ Message expression: anonymous keyword
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -138,8 +134,7 @@ Selector expression
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -167,8 +162,7 @@ Protocol expression
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
@@ -194,8 +188,7 @@ Encode expression
   (class_implementation
     name: (identifier)
       (instance_method_definition
-        selector: (unary_selector
-          (identifier))
+        selector: (identifier)
         body: (compound_statement
           (expression_statement
 
