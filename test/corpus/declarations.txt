@@ -118,21 +118,6 @@ Instance method declaration: unary selector
 
 
 ==================
-Empty class interface with superclass
-==================
-
-@interface ClassName: SuperclassName
-@end
-
----
-
-(translation_unit
-  (class_interface
-    name: (identifier)
-    superclass: (identifier)))
-
-
-==================
 Class implementation: Empty
 ==================
 
