@@ -6854,96 +6854,71 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_method_declaration"
+          "name": "method_declaration"
         }
       ]
     },
-    "_method_declaration": {
+    "method_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "scope",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_class_member_scope"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "return_type",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_method_type"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "selector",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_method_selector"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "_class_member_scope": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "class_method_declaration"
+          "name": "class_scope"
         },
         {
           "type": "SYMBOL",
-          "name": "instance_method_declaration"
+          "name": "instance_scope"
         }
       ]
     },
-    "class_method_declaration": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "+"
-        },
-        {
-          "type": "FIELD",
-          "name": "return_type",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_method_type"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "selector",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_method_selector"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ";"
-        }
-      ]
+    "class_scope": {
+      "type": "STRING",
+      "value": "+"
     },
-    "instance_method_declaration": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "-"
-        },
-        {
-          "type": "FIELD",
-          "name": "return_type",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_method_type"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "selector",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_method_selector"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ";"
-        }
-      ]
+    "instance_scope": {
+      "type": "STRING",
+      "value": "-"
     },
     "class_implementation": {
       "type": "SEQ",
@@ -7063,82 +7038,20 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_method_definition"
+          "name": "method_definition"
         }
       ]
     },
-    "_method_definition": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "class_method_definition"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "instance_method_definition"
-        }
-      ]
-    },
-    "class_method_definition": {
+    "method_definition": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "+"
-        },
-        {
           "type": "FIELD",
-          "name": "return_type",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_method_type"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "selector",
+          "name": "scope",
           "content": {
             "type": "SYMBOL",
-            "name": "_method_selector"
+            "name": "_class_member_scope"
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "declaration_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "FIELD",
-          "name": "body",
-          "content": {
-            "type": "SYMBOL",
-            "name": "compound_statement"
-          }
-        }
-      ]
-    },
-    "instance_method_definition": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "-"
         },
         {
           "type": "FIELD",

@@ -13,7 +13,8 @@ Self
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -38,7 +39,8 @@ Message expression: super receiver
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -67,7 +69,8 @@ Message expression: keyword arguments
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -102,7 +105,8 @@ Message expression: anonymous keyword
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -133,7 +137,8 @@ Selector expression
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -161,7 +166,8 @@ Protocol expression
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement
@@ -187,7 +193,8 @@ Encode expression
 (translation_unit
   (class_implementation
     name: (identifier)
-      (instance_method_definition
+      (method_definition
+        scope: (instance_scope)
         selector: (identifier)
         body: (compound_statement
           (expression_statement

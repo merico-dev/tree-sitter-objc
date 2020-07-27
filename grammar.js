@@ -93,27 +93,24 @@ module.exports = grammar(C, {
 
     _interface_declaration: $ => choice(
       $.declaration,
-      $._method_declaration,
+      $.method_declaration,
     ),
 
-    _method_declaration: $ => choice(
-      $.class_method_declaration,
-      $.instance_method_declaration
-    ),
-
-    class_method_declaration: $ => seq(
-      '+',
+    method_declaration: $ => seq(
+      field('scope', $._class_member_scope),
       field('return_type', optional($._method_type)),
       field('selector', $._method_selector),
       ';'
     ),
 
-    instance_method_declaration: $ => seq(
-      '-',
-      field('return_type', optional($._method_type)),
-      field('selector', $._method_selector),
-      ';'
+    _class_member_scope: $ => choice(
+      $.class_scope,
+      $.instance_scope
     ),
+
+    class_scope: $ => '+',
+
+    instance_scope: $ => '-',
 
     // Implementation
 
@@ -135,24 +132,11 @@ module.exports = grammar(C, {
     _implementation_definition: $ => choice(
       $.function_definition,
       $.declaration,
-      $._method_definition
+      $.method_definition
     ),
 
-    _method_definition: $ => choice(
-      $.class_method_definition,
-      $.instance_method_definition
-    ),
-
-    class_method_definition: $ => seq(
-      '+',
-      field('return_type', optional($._method_type)),
-      field('selector', $._method_selector),
-      optional($.declaration_list),
-      field('body', $.compound_statement)
-    ),
-
-    instance_method_definition: $ => seq(
-      '-',
+    method_definition: $ => seq(
+      field('scope', $._class_member_scope),
       field('return_type', optional($._method_type)),
       field('selector', $._method_selector),
       optional($.declaration_list),

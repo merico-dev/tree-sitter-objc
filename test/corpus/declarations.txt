@@ -68,7 +68,7 @@ Class interface: Instance Variables
 
 
 ==================
-Class method declaration: keyword selector
+Method declaration: keyword selector
 ==================
 
 @interface ClassName
@@ -80,7 +80,8 @@ Class method declaration: keyword selector
 (translation_unit
   (class_interface
     name: (identifier)
-    (class_method_declaration
+    (method_declaration
+      scope: (class_scope)
       return_type: (type_descriptor
         type: (type_identifier))
       selector: (keyword_selector
@@ -99,7 +100,7 @@ Class method declaration: keyword selector
 
 
 ==================
-Instance method declaration: unary selector
+Method declaration: unary selector
 ==================
 
 @interface ClassName
@@ -111,7 +112,8 @@ Instance method declaration: unary selector
 (translation_unit
   (class_interface
     name: (identifier)
-    (instance_method_declaration
+    (method_declaration
+      scope: (instance_scope)
       return_type: (type_descriptor
         type: (type_identifier))
       selector: (identifier))))
@@ -200,7 +202,8 @@ Class implementation: Class method with keyword selector
 (translation_unit
   (class_implementation
     name: (identifier)
-    (class_method_definition
+    (method_definition
+      scope: (class_scope)
       return_type: (type_descriptor
         type: (type_identifier))
       selector: (keyword_selector
@@ -234,7 +237,8 @@ Class implementation: Instance method with unary selector
 (translation_unit
   (class_implementation
     name: (identifier)
-    (instance_method_definition
+    (method_definition
+      scope: (instance_scope)
       return_type: (type_descriptor
         type: (type_identifier))
       selector: (identifier)

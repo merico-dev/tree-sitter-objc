@@ -836,10 +836,6 @@
       "required": false,
       "types": [
         {
-          "type": "class_method_definition",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
@@ -848,7 +844,7 @@
           "named": true
         },
         {
-          "type": "instance_method_definition",
+          "type": "method_definition",
           "named": true
         }
       ]
@@ -894,15 +890,11 @@
       "required": false,
       "types": [
         {
-          "type": "class_method_declaration",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
         {
-          "type": "instance_method_declaration",
+          "type": "method_declaration",
           "named": true
         }
       ]
@@ -968,10 +960,6 @@
       "required": false,
       "types": [
         {
-          "type": "class_method_definition",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
@@ -984,7 +972,7 @@
           "named": true
         },
         {
-          "type": "instance_method_definition",
+          "type": "method_definition",
           "named": true
         },
         {
@@ -1042,10 +1030,6 @@
       "required": false,
       "types": [
         {
-          "type": "class_method_declaration",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
@@ -1054,7 +1038,7 @@
           "named": true
         },
         {
-          "type": "instance_method_declaration",
+          "type": "method_declaration",
           "named": true
         },
         {
@@ -1073,124 +1057,9 @@
     }
   },
   {
-    "type": "class_method_declaration",
+    "type": "class_scope",
     "named": true,
-    "fields": {
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "type_descriptor",
-            "named": true
-          }
-        ]
-      },
-      "selector": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "...",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyword_selector",
-            "named": true
-          },
-          {
-            "type": "parameter_declaration",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "class_method_definition",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "type_descriptor",
-            "named": true
-          }
-        ]
-      },
-      "selector": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "...",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyword_selector",
-            "named": true
-          },
-          {
-            "type": "parameter_declaration",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "declaration_list",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "comma_expression",
@@ -2093,124 +1962,9 @@
     }
   },
   {
-    "type": "instance_method_declaration",
+    "type": "instance_scope",
     "named": true,
-    "fields": {
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "type_descriptor",
-            "named": true
-          }
-        ]
-      },
-      "selector": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "...",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyword_selector",
-            "named": true
-          },
-          {
-            "type": "parameter_declaration",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "instance_method_definition",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "type_descriptor",
-            "named": true
-          }
-        ]
-      },
-      "selector": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "...",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyword_selector",
-            "named": true
-          },
-          {
-            "type": "parameter_declaration",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "declaration_list",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "keyword_argument",
@@ -2446,6 +2200,154 @@
         },
         {
           "type": "keyword_argument_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "method_declaration",
+    "named": true,
+    "fields": {
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "scope": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "class_scope",
+            "named": true
+          },
+          {
+            "type": "instance_scope",
+            "named": true
+          }
+        ]
+      },
+      "selector": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "...",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "keyword_selector",
+            "named": true
+          },
+          {
+            "type": "parameter_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "method_definition",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "scope": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "class_scope",
+            "named": true
+          },
+          {
+            "type": "instance_scope",
+            "named": true
+          }
+        ]
+      },
+      "selector": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "...",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "keyword_selector",
+            "named": true
+          },
+          {
+            "type": "parameter_declaration",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "declaration_list",
           "named": true
         }
       ]
@@ -3374,15 +3276,11 @@
       "required": false,
       "types": [
         {
-          "type": "class_method_declaration",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
         {
-          "type": "instance_method_declaration",
+          "type": "method_declaration",
           "named": true
         }
       ]
