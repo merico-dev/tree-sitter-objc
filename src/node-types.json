@@ -840,11 +840,19 @@
           "named": true
         },
         {
+          "type": "dynamic",
+          "named": true
+        },
+        {
           "type": "function_definition",
           "named": true
         },
         {
           "type": "method_definition",
+          "named": true
+        },
+        {
+          "type": "synthesize",
           "named": true
         }
       ]
@@ -895,6 +903,10 @@
         },
         {
           "type": "method_declaration",
+          "named": true
+        },
+        {
+          "type": "property_declaration",
           "named": true
         }
       ]
@@ -964,6 +976,10 @@
           "named": true
         },
         {
+          "type": "dynamic",
+          "named": true
+        },
+        {
           "type": "field_declaration",
           "named": true
         },
@@ -985,6 +1001,10 @@
         },
         {
           "type": "public",
+          "named": true
+        },
+        {
+          "type": "synthesize",
           "named": true
         }
       ]
@@ -1043,6 +1063,10 @@
         },
         {
           "type": "private",
+          "named": true
+        },
+        {
+          "type": "property_declaration",
           "named": true
         },
         {
@@ -1419,6 +1443,22 @@
         "types": [
           {
             "type": "parenthesized_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "dynamic",
+    "named": true,
+    "fields": {
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -1820,6 +1860,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "getter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3243,6 +3299,82 @@
     }
   },
   {
+    "type": "property_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "protocol_type_specifier",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "copy",
+          "named": true
+        },
+        {
+          "type": "getter",
+          "named": true
+        },
+        {
+          "type": "nonatomic",
+          "named": true
+        },
+        {
+          "type": "readonly",
+          "named": true
+        },
+        {
+          "type": "readwrite",
+          "named": true
+        },
+        {
+          "type": "retain",
+          "named": true
+        },
+        {
+          "type": "setter",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "weak",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "protocol_declaration",
     "named": true,
     "fields": {
@@ -3277,6 +3409,10 @@
         },
         {
           "type": "method_declaration",
+          "named": true
+        },
+        {
+          "type": "property_declaration",
           "named": true
         }
       ]
@@ -3394,6 +3530,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "setter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3593,6 +3745,47 @@
         "types": [
           {
             "type": "parenthesized_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "synthesize",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "synthesize_property",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "synthesize_property",
+    "named": true,
+    "fields": {
+      "instance_variable": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -4108,6 +4301,10 @@
     "named": false
   },
   {
+    "type": "@dynamic",
+    "named": false
+  },
+  {
     "type": "@encode",
     "named": false
   },
@@ -4124,11 +4321,19 @@
     "named": false
   },
   {
+    "type": "@property",
+    "named": false
+  },
+  {
     "type": "@protocol",
     "named": false
   },
   {
     "type": "@selector",
+    "named": false
+  },
+  {
+    "type": "@synthesize",
     "named": false
   },
   {
@@ -4212,6 +4417,10 @@
     "named": false
   },
   {
+    "type": "assign",
+    "named": true
+  },
+  {
     "type": "auto",
     "named": false
   },
@@ -4238,6 +4447,10 @@
   {
     "type": "continue",
     "named": false
+  },
+  {
+    "type": "copy",
+    "named": true
   },
   {
     "type": "default",
@@ -4277,6 +4490,10 @@
   },
   {
     "type": "for",
+    "named": false
+  },
+  {
+    "type": "getter",
     "named": false
   },
   {
@@ -4320,6 +4537,10 @@
     "named": true
   },
   {
+    "type": "nonatomic",
+    "named": true
+  },
+  {
     "type": "null",
     "named": true
   },
@@ -4360,6 +4581,14 @@
     "named": true
   },
   {
+    "type": "readonly",
+    "named": true
+  },
+  {
+    "type": "readwrite",
+    "named": true
+  },
+  {
     "type": "register",
     "named": false
   },
@@ -4368,12 +4597,20 @@
     "named": false
   },
   {
+    "type": "retain",
+    "named": true
+  },
+  {
     "type": "return",
     "named": false
   },
   {
     "type": "self",
     "named": true
+  },
+  {
+    "type": "setter",
+    "named": false
   },
   {
     "type": "short",
@@ -4394,6 +4631,10 @@
   {
     "type": "static",
     "named": false
+  },
+  {
+    "type": "strong",
+    "named": true
   },
   {
     "type": "struct",
@@ -4450,6 +4691,10 @@
   {
     "type": "volatile",
     "named": false
+  },
+  {
+    "type": "weak",
+    "named": true
   },
   {
     "type": "while",

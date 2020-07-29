@@ -94,6 +94,7 @@ module.exports = grammar(C, {
     _interface_declaration: $ => choice(
       $.declaration,
       $.method_declaration,
+      $.property_declaration
     ),
 
     method_declaration: $ => seq(
@@ -111,6 +112,55 @@ module.exports = grammar(C, {
     class_scope: $ => '+',
 
     instance_scope: $ => '-',
+
+    property_declaration: $ => seq(
+      '@property',
+      optional($._property_attribute_list),
+      field('type', $._type_identifier),
+      field('name', $.identifier),
+      ';'
+    ),
+
+    _property_attribute_list: $ => seq(
+      '(', commaSep1($._property_attribute), ')'
+    ),
+
+    _property_attribute: $ => choice(
+      $.getter,
+      $.setter,
+      $.readwrite,
+      $.readonly,
+      $.strong,
+      $.weak,
+      $.copy,
+      $.assign,
+      $.retain,
+      $.nonatomic
+    ),
+
+    getter: $ => seq(
+      'getter', '=', field('name', $.identifier)
+    ),
+
+    setter: $ => seq(
+      'setter', '=', field('name', $.identifier)
+    ),
+
+    readwrite: $ => 'readwrite',
+
+    readonly: $ => 'readonly',
+
+    strong: $ => 'strong',
+
+    weak: $ => 'weak',
+
+    copy: $ => 'copy',
+
+    assign: $ => 'assign',
+
+    retain: $ => 'retain',
+
+    nonatomic: $ => 'nonatomic',
 
     // Implementation
 
@@ -132,7 +182,26 @@ module.exports = grammar(C, {
     _implementation_definition: $ => choice(
       $.function_definition,
       $.declaration,
-      $.method_definition
+      $.method_definition,
+      $.synthesize,
+      $.dynamic,
+    ),
+
+    synthesize: $ => seq(
+      '@synthesize', $._synthesize_property_list,';'
+    ),
+
+    _synthesize_property_list: $ => commaSep1($.synthesize_property),
+
+    synthesize_property: $ => seq(
+      field('property', $.identifier),
+      optional(seq('=', field('instance_variable', $.identifier)))
+    ),
+
+    dynamic: $ => seq(
+      '@dynamic',
+      field('property', $.identifier),
+      ';'
     ),
 
     method_definition: $ => seq(

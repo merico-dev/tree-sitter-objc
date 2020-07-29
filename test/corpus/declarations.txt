@@ -68,6 +68,26 @@ Class interface: Instance Variables
 
 
 ==================
+Class interface: Property
+==================
+
+@interface ClassName
+@property (readwrite, copy) float value;
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (property_declaration
+      (readwrite)
+      (copy)
+      type: (type_identifier)
+      name: (identifier))))
+
+
+==================
 Method declaration: keyword selector
 ==================
 
@@ -146,6 +166,27 @@ Class implementation: Superclass
   (class_implementation
     name: (identifier)
     superclass: (identifier)))
+
+
+==================
+Class implementation: Synthesize property
+==================
+
+@implementation ClassName
+@synthesize p1, p2=iv;
+@end
+
+---
+
+(translation_unit
+  (class_implementation
+    name: (identifier)
+    (synthesize
+      (synthesize_property
+        property: (identifier))
+      (synthesize_property
+        property: (identifier)
+        instance_variable: (identifier)))))
 
 
 ==================
