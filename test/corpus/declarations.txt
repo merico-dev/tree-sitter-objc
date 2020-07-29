@@ -189,7 +189,7 @@ Instance variables: visibility specification
 
 
 ==================
-Class implementation: Class method with keyword selector
+Method definition: keyword selector
 ==================
 
 @implementation ClassName
@@ -224,7 +224,7 @@ Class implementation: Class method with keyword selector
 
 
 ==================
-Class implementation: Instance method with unary selector
+Method definition: unary selector
 ==================
 
 @implementation ClassName
