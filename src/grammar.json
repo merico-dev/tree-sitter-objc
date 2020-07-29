@@ -7298,12 +7298,20 @@
           "value": "["
         },
         {
-          "type": "SYMBOL",
-          "name": "receiver"
+          "type": "FIELD",
+          "name": "receiver",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_receiver"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "message_selector"
+          "type": "FIELD",
+          "name": "selector",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_message_selector"
+          }
         },
         {
           "type": "STRING",
@@ -7311,7 +7319,7 @@
         }
       ]
     },
-    "receiver": {
+    "_receiver": {
       "type": "CHOICE",
       "members": [
         {
@@ -7328,7 +7336,7 @@
       "type": "STRING",
       "value": "super"
     },
-    "message_selector": {
+    "_message_selector": {
       "type": "CHOICE",
       "members": [
         {

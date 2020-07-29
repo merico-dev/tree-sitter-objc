@@ -216,17 +216,20 @@ module.exports = grammar(C, {
     self: $ => 'self',
 
     message_expression: $ => seq(
-      '[', $.receiver, $.message_selector, ']'
+      '[',
+      field('receiver', $._receiver),
+      field('selector', $._message_selector),
+      ']'
     ),
 
-    receiver: $ => choice(
+    _receiver: $ => choice(
       $._expression,
       $.super
     ),
 
     super: $ => 'super',
 
-    message_selector: $ => choice(
+    _message_selector: $ => choice(
       $.identifier,
       $.keyword_argument_list
     ),

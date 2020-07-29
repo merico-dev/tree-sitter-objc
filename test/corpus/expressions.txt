@@ -46,10 +46,8 @@ Message expression: super receiver
           (expression_statement
 
             (message_expression
-              (receiver
-                (super))
-              (message_selector
-                (identifier)))
+              receiver: (super)
+              selector: (identifier))
 
           )))))
 
@@ -76,16 +74,14 @@ Message expression: keyword arguments
           (expression_statement
 
             (message_expression
-              (receiver
-                (identifier))
-              (message_selector
-                (keyword_argument_list
-                  (keyword_argument
-                    keyword: (identifier)
-                    argument: (identifier))
-                  (keyword_argument
-                    keyword: (identifier)
-                    argument: (identifier)))))
+              receiver: (identifier)
+              selector: (keyword_argument_list
+                (keyword_argument
+                  keyword: (identifier)
+                  argument: (identifier))
+                (keyword_argument
+                  keyword: (identifier)
+                  argument: (identifier))))
 
           )))))
 
@@ -112,12 +108,10 @@ Message expression: anonymous keyword
           (expression_statement
 
             (message_expression
-              (receiver
-                (identifier))
-              (message_selector
-                (keyword_argument_list
-                  (keyword_argument
-                    argument: (identifier)))))
+              receiver: (identifier)
+              selector: (keyword_argument_list
+                (keyword_argument
+                  argument: (identifier))))
 
           )))))
 
