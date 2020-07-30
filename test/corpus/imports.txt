@@ -1,0 +1,37 @@
+==================
+Preprocessor import: system lib string
+==================
+
+#import <foo/bar.h>
+
+---
+
+(translation_unit
+  (preproc_import
+    path: (system_lib_string)))
+
+
+==================
+Preprocessor import: string literal
+==================
+
+#import "bar.h"
+
+---
+
+(translation_unit
+  (preproc_import
+    path: (string_literal)))
+
+
+==================
+Module import
+==================
+
+@import foo.bar
+
+---
+
+(translation_unit
+  (module_import
+    module: (module_path)))

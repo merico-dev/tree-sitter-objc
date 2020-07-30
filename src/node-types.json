@@ -1190,6 +1190,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -1207,6 +1211,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -1385,6 +1393,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -1402,6 +1414,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -2406,6 +2422,22 @@
     }
   },
   {
+    "type": "module_import",
+    "named": true,
+    "fields": {
+      "module": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_path",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "ms_based_modifier",
     "named": true,
     "fields": {},
@@ -2830,6 +2862,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -2847,6 +2883,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -2921,6 +2961,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -2938,6 +2982,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -3101,6 +3149,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -3118,6 +3170,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -3217,6 +3273,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -3237,6 +3297,10 @@
           "named": true
         },
         {
+          "type": "preproc_import",
+          "named": true
+        },
+        {
           "type": "preproc_include",
           "named": true
         },
@@ -3253,6 +3317,26 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "preproc_import",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "system_lib_string",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3841,6 +3925,10 @@
           "named": true
         },
         {
+          "type": "module_import",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -3858,6 +3946,10 @@
         },
         {
           "type": "preproc_ifdef",
+          "named": true
+        },
+        {
+          "type": "preproc_import",
           "named": true
         },
         {
@@ -4149,6 +4241,10 @@
     "named": false
   },
   {
+    "type": "#import",
+    "named": false
+  },
+  {
     "type": "#include",
     "named": false
   },
@@ -4314,6 +4410,10 @@
   },
   {
     "type": "@implementation",
+    "named": false
+  },
+  {
+    "type": "@import",
     "named": false
   },
   {
@@ -4523,6 +4623,10 @@
   {
     "type": "long",
     "named": false
+  },
+  {
+    "type": "module_path",
+    "named": true
   },
   {
     "type": "ms_restrict_modifier",

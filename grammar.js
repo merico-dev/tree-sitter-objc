@@ -21,7 +21,8 @@ module.exports = grammar(C, {
       $.category_implementation,
       $.protocol_declaration,
       $.protocol_declaration_list,
-      $.class_declaration_list
+      $.class_declaration_list,
+      $._import
     ),
 
     _name: $ => field('name', $.identifier),
@@ -29,6 +30,27 @@ module.exports = grammar(C, {
     _superclass_reference: $ => seq(
       ':', field('superclass', $.identifier)
     ),
+
+    _import: $ => choice(
+      $.preproc_import,
+      $.module_import
+    ),
+
+    preproc_import: $ => seq(
+      '#import',
+      field('path',
+        choice(
+          $.system_lib_string,
+          $.string_literal
+        )
+      )
+    ),
+
+    module_import: $ => seq(
+      '@import', field('module', $.module_path)
+    ),
+
+    module_path: $ => /[a-zA-Z_]\w*(\.[a-zA-Z_]\w*)*/,
 
     // Declarations
 

@@ -92,6 +92,10 @@
         {
           "type": "SYMBOL",
           "name": "class_declaration_list"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_import"
         }
       ]
     },
@@ -6482,6 +6486,66 @@
           }
         }
       ]
+    },
+    "_import": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "preproc_import"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_import"
+        }
+      ]
+    },
+    "preproc_import": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#import"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "system_lib_string"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "string_literal"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "module_import": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@import"
+        },
+        {
+          "type": "FIELD",
+          "name": "module",
+          "content": {
+            "type": "SYMBOL",
+            "name": "module_path"
+          }
+        }
+      ]
+    },
+    "module_path": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_]\\w*(\\.[a-zA-Z_]\\w*)*"
     },
     "class_interface": {
       "type": "SEQ",
