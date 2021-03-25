@@ -7919,6 +7919,7 @@
       "enum_specifier"
     ]
   ],
+  "precedences": [],
   "externals": [],
   "inline": [
     "_statement",
