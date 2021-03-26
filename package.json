@@ -2,7 +2,7 @@
   "name": "tree-sitter-objc",
   "version": "0.0.1",
   "description": "A tree-sitter parser for objective-C",
-  "main": "index.js",
+  "main": "bindings/node",
   "keywords": [
     "parser",
     "objective-c",
@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "tree-sitter-c": "^0.16.1",
-    "tree-sitter-cli": "0.16.7"
+    "tree-sitter-cli": "0.19.4"
   }
 }

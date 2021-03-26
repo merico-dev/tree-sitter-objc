@@ -2004,7 +2004,7 @@
     "named": true,
     "fields": {
       "designator": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
@@ -2104,7 +2104,7 @@
         ]
       },
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2278,7 +2278,7 @@
     "named": true,
     "fields": {
       "return_type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2310,7 +2310,7 @@
         ]
       },
       "selector": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
@@ -2352,7 +2352,7 @@
         ]
       },
       "return_type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2384,7 +2384,7 @@
         ]
       },
       "selector": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
@@ -4539,6 +4539,10 @@
   {
     "type": "case",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "const",
