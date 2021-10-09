@@ -9,7 +9,8 @@ module.exports = grammar(C, {
     [$.keyword_selector],
     [$.struct_specifier],
     [$.union_specifier],
-    [$.enum_specifier]
+    [$.enum_specifier],
+    [$.block_declarator, $.abstract_block_declarator]
   ]),
 
   rules: {
@@ -184,6 +185,36 @@ module.exports = grammar(C, {
 
     nonatomic: $ => 'nonatomic',
 
+    // Add support for Blocks: Declartion
+    // Specification: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html 
+    
+    _declarator: ($, original) => choice(
+      original,
+      $.block_declarator
+    ),
+
+    _abstract_declarator: ($, original) => choice(
+      original,
+      $.abstract_block_declarator
+    ),
+
+    block_declarator: $ => seq(
+      '(',
+      '^',
+      field('declarator', optional($.identifier)),
+      ')',
+      field('parameters', $.parameter_list),
+      repeat($.attribute_specifier)
+    ),
+
+    abstract_block_declarator: $ => seq(
+      '(',
+      '^',
+      field('declarator', optional($._abstract_declarator)),
+      ')',
+      field('parameters', $.parameter_list)
+    ),
+
     // Implementation
 
     class_implementation: $ => seq(
@@ -301,7 +332,8 @@ module.exports = grammar(C, {
       $.selector_expression,
       $.message_expression,
       $.protocol_expression,
-      $.encode_expression
+      $.encode_expression,
+      $.block_expression
     ),
 
     self: $ => 'self',
@@ -353,6 +385,14 @@ module.exports = grammar(C, {
 
     encode_expression: $ => seq(
       '@encode', '(', $.identifier, ')'
+    ),
+
+    // Add support for Blocks: Expression
+    // Specification: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html 
+    block_expression: $ => seq(
+      '^',
+      optional(field('parameters', $.parameter_list)),
+      field('body', $.compound_statement)
     )
   }
 });

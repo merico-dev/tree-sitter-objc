@@ -377,3 +377,79 @@ Class declaration list
   (class_declaration_list
     (identifier)
     (identifier)))
+
+
+==================
+Blocks: Pass Blocks as arguement in method
+==================
+
+@interface ClassName
+- (void)method:(type1)argument1 secondValue:(void(^)(void))block;
+@end
+
+---
+
+(translation_unit
+  (class_interface
+    name: (identifier)
+    (method_declaration
+      scope: (instance_scope)
+      return_type: (type_descriptor
+        type: (primitive_type))
+      selector: (keyword_selector
+        (keyword_declarator
+          keyword: (identifier)
+          type: (type_descriptor
+            type: (type_identifier))
+          name: (identifier))
+        (keyword_declarator
+          keyword: (identifier)
+          type: (type_descriptor
+            type: (primitive_type)
+            declarator: (abstract_block_declarator
+              parameters: (parameter_list
+                (parameter_declaration
+                  type: (primitive_type)))))
+          name: (identifier))))))
+
+
+==================
+Blocks: Declare Blocks
+==================
+
+void ( ^ blocksName ) ( void );
+
+---
+
+(translation_unit
+  (declaration
+    type: (primitive_type)
+    declarator: (block_declarator
+      declarator: (identifier)
+      parameters: (parameter_list
+        (parameter_declaration
+          type: (primitive_type))))))
+
+
+==================
+Blocks: Blocks Literal
+==================
+
+void (^testBlock)(void) = ^{
+  return;
+};
+
+---
+
+(translation_unit
+  (declaration
+    type: (primitive_type)
+    declarator: (init_declarator
+      declarator: (block_declarator
+        declarator: (identifier)
+        parameters: (parameter_list
+          (parameter_declaration
+            type: (primitive_type))))
+      value: (block_expression
+        body: (compound_statement
+          (return_statement))))))
