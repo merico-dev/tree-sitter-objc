@@ -197,3 +197,31 @@ Encode expression
               (identifier))
 
           )))))
+
+
+==================
+For in statement
+==================
+
+for (int a in b) {
+  if ( a == 3 ) {
+    return;
+  }
+}
+
+---
+
+(translation_unit
+  (for_in_statement
+    (primitive_type)
+    (identifier)
+    (identifier)
+    (compound_statement
+      (if_statement
+        (parenthesized_expression
+          (binary_expression
+            (identifier)
+            (number_literal)))
+        (compound_statement
+          (return_statement))))))
+
