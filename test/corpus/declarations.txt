@@ -380,7 +380,7 @@ Class declaration list
 
 
 ==================
-Blocks: Pass Blocks as arguement in method
+Blocks: Pass Blocks as argument in method
 ==================
 
 @interface ClassName

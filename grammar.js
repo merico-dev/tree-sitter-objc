@@ -185,9 +185,7 @@ module.exports = grammar(C, {
 
     nonatomic: $ => 'nonatomic',
 
-    // Add support for Blocks: Declartion
-    // Specification: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html 
-    
+    // Add support for Blocks: Declaration
     _declarator: ($, original) => choice(
       original,
       $.block_declarator
@@ -388,7 +386,6 @@ module.exports = grammar(C, {
     ),
 
     // Add support for Blocks: Expression
-    // Specification: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html 
     block_expression: $ => seq(
       '^',
       optional(field('parameters', $.parameter_list)),
