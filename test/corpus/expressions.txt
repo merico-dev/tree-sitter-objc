@@ -197,3 +197,153 @@ Encode expression
               (identifier))
 
           )))))
+
+
+==================
+At expression: At string literal
+==================
+
+NSString * a = @"Test";
+
+---
+
+(translation_unit
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (string_literal)))))
+
+
+==================
+At expression: At number literal
+==================
+
+NSNumber *fortyTwo = @42;
+NSNumber *fortyTwoUnsigned = @42U;
+NSNumber *fortyTwoLong = @42L;
+NSNumber *fortyTwoLongLong = @42LL;
+
+---
+
+(translation_unit
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (number_literal))))
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (number_literal))))
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (number_literal))))
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (number_literal)))))
+
+
+==================
+At expression: At char literal
+==================
+
+NSNumber *theLetterZ = @'Z';
+
+---
+
+(translation_unit
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (char_literal)))))
+
+
+==================
+At expression: At array literal
+==================
+
+NSArray *elements = @[ @"H", @"He", @"O", @"C" ];
+NSArray *elements = @[  ];
+NSArray *elements = @[ @[ @"H" ], @"He" ];
+
+---
+
+(translation_unit
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (array_literal
+          (objc_at_expression
+            (string_literal))
+          (objc_at_expression
+            (string_literal))
+          (objc_at_expression
+            (string_literal))
+          (objc_at_expression
+            (string_literal))))))
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (array_literal))))
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (array_literal
+          (objc_at_expression
+            (array_literal
+              (objc_at_expression
+                (string_literal))))
+          (objc_at_expression
+            (string_literal)))))))
+
+
+==================
+At expression: At dictionary literal
+==================
+
+NSDictionary *dictionary = @{
+    @"key" : @[]
+};
+
+---
+
+(translation_unit
+  (declaration
+    type: (type_identifier)
+    declarator: (init_declarator
+      declarator: (pointer_declarator
+        declarator: (identifier))
+      value: (objc_at_expression
+        (dictionary_literal
+          key: (objc_at_expression
+            (string_literal))
+          value: (objc_at_expression
+            (array_literal)))))))

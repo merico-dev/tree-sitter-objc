@@ -331,7 +331,8 @@ module.exports = grammar(C, {
       $.message_expression,
       $.protocol_expression,
       $.encode_expression,
-      $.block_expression
+      $.block_expression,
+      $.objc_at_expression
     ),
 
     self: $ => 'self',
@@ -390,6 +391,44 @@ module.exports = grammar(C, {
       '^',
       optional(field('parameters', $.parameter_list)),
       field('body', $.compound_statement)
+    ),
+
+    // Add support for at expression
+    _key_value_pair: $ => seq(
+      field('key', $._expression),
+      ':',
+      field('value', $._expression)
+    ),
+
+    _key_value_list: $ => choice(
+      commaSep1($._key_value_pair),
+    ),
+
+    dictionary_literal: $ => seq(
+      '{',
+      optional($._key_value_list),
+      '}'
+    ),
+
+    _expression_list: $ => choice(
+      commaSep1($._expression)
+    ),
+
+    array_literal: $ => seq(
+      '[',
+      optional($._expression_list),
+      ']'
+      ),
+
+    objc_at_expression: $ => seq(
+      '@',
+      choice(
+        $.string_literal,
+        $.number_literal,
+        $.char_literal,
+        $.array_literal,
+        $.dictionary_literal,
+      )
     )
   }
 });
