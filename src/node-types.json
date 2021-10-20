@@ -8,6 +8,10 @@
         "named": true
       },
       {
+        "type": "abstract_block_declarator",
+        "named": true
+      },
+      {
         "type": "abstract_function_declarator",
         "named": true
       },
@@ -27,6 +31,10 @@
     "subtypes": [
       {
         "type": "array_declarator",
+        "named": true
+      },
+      {
+        "type": "block_declarator",
         "named": true
       },
       {
@@ -57,6 +65,10 @@
       },
       {
         "type": "binary_expression",
+        "named": true
+      },
+      {
+        "type": "block_expression",
         "named": true
       },
       {
@@ -347,6 +359,32 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "abstract_block_declarator",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "_abstract_declarator",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -669,6 +707,68 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "block_declarator",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute_specifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_expression",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
