@@ -213,15 +213,15 @@ for (int a in b) {
 
 (translation_unit
   (for_in_statement
-    (primitive_type)
-    (identifier)
-    (identifier)
-    (compound_statement
+    type: (primitive_type)
+    declaration: (identifier)
+    expression: (identifier)
+    body: (compound_statement
       (if_statement
-        (parenthesized_expression
+        condition: (parenthesized_expression
           (binary_expression
-            (identifier)
-            (number_literal)))
-        (compound_statement
+            left: (identifier)
+            right: (number_literal)))
+        consequence: (compound_statement
           (return_statement))))))
 
