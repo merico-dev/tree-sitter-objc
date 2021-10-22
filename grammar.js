@@ -213,6 +213,22 @@ module.exports = grammar(C, {
       field('parameters', $.parameter_list)
     ),
 
+    // Add support for for in statement
+    for_in_statement: $ => seq(
+      'for',
+      '(',
+      field('declaration', seq($._declaration_specifiers, $._declarator)),
+      'in',
+      field('expression', $._expression),
+      ')',
+      field('body', $.compound_statement)
+    ),
+
+    _non_case_statement: ($, original) => choice(
+      original,
+      $.for_in_statement
+    ),
+
     // Implementation
 
     class_implementation: $ => seq(
