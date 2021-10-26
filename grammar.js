@@ -405,6 +405,7 @@ module.exports = grammar(C, {
     // Add support for Blocks: Expression
     block_expression: $ => seq(
       '^',
+      optional(field('return_type',$._type_specifier)),
       optional(field('parameters', $.parameter_list)),
       field('body', $.compound_statement)
     ),

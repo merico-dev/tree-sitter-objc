@@ -453,3 +453,38 @@ void (^testBlock)(void) = ^{
       value: (block_expression
         body: (compound_statement
           (return_statement))))))
+
+
+==================
+Blocks: Pass Blocks as argument in message selector
+==================
+
+function([db A:a block:^int(Type *type) {
+  return 0;
+}]);
+
+---
+
+(translation_unit
+  (expression_statement
+    (call_expression
+      function: (identifier)
+      arguments: (argument_list
+        (message_expression
+          receiver: (identifier)
+          selector: (keyword_argument_list
+            (keyword_argument
+              keyword: (identifier)
+              argument: (identifier))
+            (keyword_argument
+              keyword: (identifier)
+              argument: (block_expression
+                return_type: (primitive_type)
+                parameters: (parameter_list
+                  (parameter_declaration
+                    type: (type_identifier)
+                    declarator: (pointer_declarator
+                      declarator: (identifier))))
+                body: (compound_statement
+                  (return_statement
+                    (number_literal)))))))))))
