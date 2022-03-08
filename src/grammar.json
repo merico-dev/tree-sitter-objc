@@ -4696,28 +4696,37 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "call_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "field_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "pointer_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "subscript_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "parenthesized_expression"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "call_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "field_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "pointer_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "subscript_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "parenthesized_expression"
+          "name": "self"
         }
       ]
     },
@@ -8709,6 +8718,55 @@
         }
       ]
     },
+    "system_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "iOS"
+        },
+        {
+          "type": "STRING",
+          "value": "iOSApplicationExtension"
+        },
+        {
+          "type": "STRING",
+          "value": "macOS"
+        },
+        {
+          "type": "STRING",
+          "value": "macOSApplicationExtension"
+        },
+        {
+          "type": "STRING",
+          "value": "macCatalyst"
+        },
+        {
+          "type": "STRING",
+          "value": "macCatalystApplicationExtension"
+        },
+        {
+          "type": "STRING",
+          "value": "watchOS"
+        },
+        {
+          "type": "STRING",
+          "value": "watchOSApplicationExtension"
+        },
+        {
+          "type": "STRING",
+          "value": "tvOS"
+        },
+        {
+          "type": "STRING",
+          "value": "tvOSApplicationExtension"
+        },
+        {
+          "type": "STRING",
+          "value": "swift"
+        }
+      ]
+    },
     "system_version": {
       "type": "CHOICE",
       "members": [
@@ -8716,57 +8774,20 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "iOS"
-                },
-                {
-                  "type": "STRING",
-                  "value": "iOSApplicationExtension"
-                },
-                {
-                  "type": "STRING",
-                  "value": "macOS"
-                },
-                {
-                  "type": "STRING",
-                  "value": "macOSApplicationExtension"
-                },
-                {
-                  "type": "STRING",
-                  "value": "macCatalyst"
-                },
-                {
-                  "type": "STRING",
-                  "value": "macCatalystApplicationExtension"
-                },
-                {
-                  "type": "STRING",
-                  "value": "watchOS"
-                },
-                {
-                  "type": "STRING",
-                  "value": "watchOSApplicationExtension"
-                },
-                {
-                  "type": "STRING",
-                  "value": "tvOS"
-                },
-                {
-                  "type": "STRING",
-                  "value": "tvOSApplicationExtension"
-                },
-                {
-                  "type": "STRING",
-                  "value": "swift"
-                }
-              ]
+              "type": "FIELD",
+              "name": "system_type",
+              "content": {
+                "type": "SYMBOL",
+                "name": "system_type"
+              }
             },
             {
-              "type": "SYMBOL",
-              "name": "number_literal"
+              "type": "FIELD",
+              "name": "version_number",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number_literal"
+              }
             }
           ]
         },
@@ -8794,8 +8815,12 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "system_version"
+                  "type": "FIELD",
+                  "name": "system_version",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "system_version"
+                  }
                 },
                 {
                   "type": "REPEAT",
@@ -8807,8 +8832,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "system_version"
+                        "type": "FIELD",
+                        "name": "system_version",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "system_version"
+                        }
                       }
                     ]
                   }

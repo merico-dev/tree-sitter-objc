@@ -373,6 +373,11 @@ module.exports = grammar(C, {
       $.objc_at_expression
     ),
 
+    _assignment_left_expression: ($, original) => choice(
+      original,
+      $.self,
+    ),
+
     self: $ => 'self',
 
     message_expression: $ => seq(
@@ -473,7 +478,7 @@ module.exports = grammar(C, {
       )
     ),
 
-    system_version: $ => choice(seq(choice(
+    system_type: $ => choice(
       'iOS',
       'iOSApplicationExtension',
       'macOS',
@@ -485,10 +490,12 @@ module.exports = grammar(C, {
       'tvOS',
       'tvOSApplicationExtension',
       'swift',
-    ), $.number_literal), '*'),
+    ),
+
+    system_version: $ => choice(seq(field('system_type', $.system_type), field('version_number', $.number_literal)), '*'),
 
     available_expression: $ => seq(
-      '@available', '(', commaSep($.system_version), ')'
+      '@available', '(', commaSep(field('system_version', $.system_version)), ')'
     ),
 
   }
