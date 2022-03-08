@@ -8815,12 +8815,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "FIELD",
-                  "name": "system_version",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "system_version"
-                  }
+                  "type": "SYMBOL",
+                  "name": "system_version"
                 },
                 {
                   "type": "REPEAT",
@@ -8832,12 +8828,8 @@
                         "value": ","
                       },
                       {
-                        "type": "FIELD",
-                        "name": "system_version",
-                        "content": {
-                          "type": "SYMBOL",
-                          "name": "system_version"
-                        }
+                        "type": "SYMBOL",
+                        "name": "system_version"
                       }
                     ]
                   }

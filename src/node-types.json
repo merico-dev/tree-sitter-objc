@@ -799,17 +799,16 @@
   {
     "type": "available_expression",
     "named": true,
-    "fields": {
-      "system_version": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "system_version",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "system_version",
+          "named": true
+        }
+      ]
     }
   },
   {

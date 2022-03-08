@@ -495,7 +495,7 @@ module.exports = grammar(C, {
     system_version: $ => choice(seq(field('system_type', $.system_type), field('version_number', $.number_literal)), '*'),
 
     available_expression: $ => seq(
-      '@available', '(', commaSep(field('system_version', $.system_version)), ')'
+      '@available', '(', commaSep($.system_version), ')'
     ),
 
   }
