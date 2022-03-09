@@ -478,7 +478,7 @@ module.exports = grammar(C, {
       )
     ),
 
-    system_type: $ => choice(
+    system_version: $ => choice(seq(choice(
       'iOS',
       'iOSApplicationExtension',
       'macOS',
@@ -490,9 +490,7 @@ module.exports = grammar(C, {
       'tvOS',
       'tvOSApplicationExtension',
       'swift',
-    ),
-
-    system_version: $ => choice(seq(field('system_type', $.system_type), field('version_number', $.number_literal)), '*'),
+    ), /\d+[0-9.]*\d+/), '*'),
 
     available_expression: $ => seq(
       '@available', '(', commaSep($.system_version), ')'
