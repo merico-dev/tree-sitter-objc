@@ -10,7 +10,7 @@ module.exports = grammar(C, {
     [$.struct_specifier],
     [$.union_specifier],
     [$.enum_specifier],
-    [$.block_declarator, $.abstract_block_declarator]
+    [$.block_declarator, $.abstract_block_declarator],
   ]),
 
   rules: {
@@ -64,7 +64,7 @@ module.exports = grammar(C, {
     ),
 
     category_interface: $ => seq(
-      '@interface', $._name, '(', field('category', $.identifier),')',
+      '@interface', $._name, '(', field('category', optional($.identifier)), ')',
       optional($._protocols),
       optional($._interface_declaration_list),
       '@end'
@@ -78,7 +78,7 @@ module.exports = grammar(C, {
     ),
 
     protocol_declaration_list: $ => seq(
-      '@protocol', '<', commaSep1($.identifier), '>', ';'
+      '@protocol', '<', commaSep1(seq($.identifier, optional('*'))), '>', ';'
     ),
 
     class_declaration_list: $ => seq(
@@ -88,7 +88,7 @@ module.exports = grammar(C, {
     _protocols: $ => field('protocols', $.protocol_reference_list),
 
     protocol_reference_list: $ => seq(
-      '<', commaSep1($.identifier), '>'
+      '<', commaSep1(seq($.identifier, optional('*'))), '>'
     ),
 
     _instance_variables: $ => seq(
@@ -117,7 +117,8 @@ module.exports = grammar(C, {
     _interface_declaration: $ => choice(
       $.declaration,
       $.method_declaration,
-      $.property_declaration
+      $.property_declaration,
+      $.preproc_call
     ),
 
     method_declaration: $ => seq(
@@ -140,6 +141,7 @@ module.exports = grammar(C, {
       '@property',
       optional($._property_attribute_list),
       field('type', $._type_identifier),
+      optional('*'),
       field('name', $.identifier),
       ';'
     ),
@@ -252,6 +254,7 @@ module.exports = grammar(C, {
       $.method_definition,
       $.synthesize,
       $.dynamic,
+      $.preproc_call,
     ),
 
     synthesize: $ => seq(
@@ -308,6 +311,9 @@ module.exports = grammar(C, {
 
     _type_identifier: ($, original) => choice(
       original,
+      '_Bool',
+      '_Complex',
+      '_Imaginary',
       $.protocol_type_specifier
     ),
 
@@ -326,6 +332,14 @@ module.exports = grammar(C, {
 
     type_qualifier: ($, original) => choice(
       original,
+      '__strong',
+      '__weak',
+      '__nonnull',
+      '__nullable',
+      '__null_unspecified',
+      '_Nonnull',
+      '_Nullable',
+      '_Null_unspecified',
       $.protocol_qualifier
     ),
 
@@ -338,6 +352,13 @@ module.exports = grammar(C, {
       'oneway'
     ),
 
+    boolean_constant: $ => choice(
+      '__objc_yes',
+      '__objc_no',
+      'true',
+      'false',
+    ),
+
     // Primary expression
 
     _expression: ($, original) => choice(
@@ -347,17 +368,23 @@ module.exports = grammar(C, {
       $.message_expression,
       $.protocol_expression,
       $.encode_expression,
+      $.available_expression,
       $.block_expression,
       $.objc_at_expression
+    ),
+
+    _assignment_left_expression: ($, original) => choice(
+      original,
+      $.self,
     ),
 
     self: $ => 'self',
 
     message_expression: $ => seq(
-      '[',
+      token(prec(1, '[')),
       field('receiver', $._receiver),
       field('selector', $._message_selector),
-      ']'
+      token(prec(1, ']')),
     ),
 
     _receiver: $ => choice(
@@ -377,7 +404,7 @@ module.exports = grammar(C, {
     keyword_argument: $ => seq(
       optional(field('keyword', $.identifier)),
       ':',
-      field('argument', $._expression)
+      field('argument', commaSep1($._expression))
     ),
 
     selector_expression: $ => seq(
@@ -435,20 +462,46 @@ module.exports = grammar(C, {
       '[',
       optional($._expression_list),
       ']'
-      ),
+    ),
 
     objc_at_expression: $ => seq(
       '@',
       choice(
+        $.identifier,
+        seq('(', $._expression, ')'),
         $.string_literal,
         $.number_literal,
         $.char_literal,
+        $.boolean_constant,
         $.array_literal,
         $.dictionary_literal,
       )
-    )
+    ),
+
+    system_version: $ => choice(seq(choice(
+      'iOS',
+      'iOSApplicationExtension',
+      'macOS',
+      'macOSApplicationExtension',
+      'macCatalyst',
+      'macCatalystApplicationExtension',
+      'watchOS',
+      'watchOSApplicationExtension',
+      'tvOS',
+      'tvOSApplicationExtension',
+      'swift',
+    ), /\d+[0-9.]*\d+/), '*'),
+
+    available_expression: $ => seq(
+      '@available', '(', commaSep($.system_version), ')'
+    ),
+
   }
 });
+
+function commaSep (rule) {
+  return optional(commaSep1(rule))
+}
 
 function commaSep1(rule) {
   return seq(rule, repeat(seq(',', rule)));

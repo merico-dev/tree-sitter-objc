@@ -68,6 +68,10 @@
         "named": true
       },
       {
+        "type": "available_expression",
+        "named": true
+      },
+      {
         "type": "binary_expression",
         "named": true
       },
@@ -274,6 +278,18 @@
     "named": true,
     "subtypes": [
       {
+        "type": "_Bool",
+        "named": false
+      },
+      {
+        "type": "_Complex",
+        "named": false
+      },
+      {
+        "type": "_Imaginary",
+        "named": false
+      },
+      {
         "type": "array_declarator",
         "named": true
       },
@@ -307,6 +323,18 @@
     "type": "_type_specifier",
     "named": true,
     "subtypes": [
+      {
+        "type": "_Bool",
+        "named": false
+      },
+      {
+        "type": "_Complex",
+        "named": false
+      },
+      {
+        "type": "_Imaginary",
+        "named": false
+      },
       {
         "type": "enum_specifier",
         "named": true
@@ -585,6 +613,10 @@
             "named": true
           },
           {
+            "type": "self",
+            "named": true
+          },
+          {
             "type": "subscript_expression",
             "named": true
           }
@@ -759,6 +791,21 @@
         },
         {
           "type": "attribute_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "available_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "system_version",
           "named": true
         }
       ]
@@ -964,6 +1011,11 @@
     }
   },
   {
+    "type": "boolean_constant",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "break_statement",
     "named": true,
     "fields": {}
@@ -1152,6 +1204,10 @@
           "named": true
         },
         {
+          "type": "preproc_call",
+          "named": true
+        },
+        {
           "type": "synthesize",
           "named": true
         }
@@ -1164,7 +1220,7 @@
     "fields": {
       "category": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -1203,6 +1259,10 @@
         },
         {
           "type": "method_declaration",
+          "named": true
+        },
+        {
+          "type": "preproc_call",
           "named": true
         },
         {
@@ -1292,6 +1352,10 @@
           "named": true
         },
         {
+          "type": "preproc_call",
+          "named": true
+        },
+        {
           "type": "private",
           "named": true
         },
@@ -1359,6 +1423,10 @@
         },
         {
           "type": "method_declaration",
+          "named": true
+        },
+        {
+          "type": "preproc_call",
           "named": true
         },
         {
@@ -1852,6 +1920,18 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "_Bool",
+            "named": false
+          },
+          {
+            "type": "_Complex",
+            "named": false
+          },
+          {
+            "type": "_Imaginary",
+            "named": false
+          },
           {
             "type": "protocol_type_specifier",
             "named": true
@@ -2473,9 +2553,13 @@
     "named": true,
     "fields": {
       "argument": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "_expression",
             "named": true
@@ -2943,23 +3027,19 @@
       "required": true,
       "types": [
         {
+          "type": "_expression",
+          "named": true
+        },
+        {
           "type": "array_literal",
           "named": true
         },
         {
-          "type": "char_literal",
+          "type": "boolean_constant",
           "named": true
         },
         {
           "type": "dictionary_literal",
-          "named": true
-        },
-        {
-          "type": "number_literal",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -3886,6 +3966,18 @@
         "required": true,
         "types": [
           {
+            "type": "_Bool",
+            "named": false
+          },
+          {
+            "type": "_Complex",
+            "named": false
+          },
+          {
+            "type": "_Imaginary",
+            "named": false
+          },
+          {
             "type": "protocol_type_specifier",
             "named": true
           },
@@ -3978,6 +4070,10 @@
         },
         {
           "type": "method_declaration",
+          "named": true
+        },
+        {
+          "type": "preproc_call",
           "named": true
         },
         {
@@ -4126,6 +4222,18 @@
         "required": false,
         "types": [
           {
+            "type": "_Bool",
+            "named": false
+          },
+          {
+            "type": "_Complex",
+            "named": false
+          },
+          {
+            "type": "_Imaginary",
+            "named": false
+          },
+          {
             "type": "primitive_type",
             "named": true
           },
@@ -4227,6 +4335,18 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "_Bool",
+            "named": false
+          },
+          {
+            "type": "_Complex",
+            "named": false
+          },
+          {
+            "type": "_Imaginary",
+            "named": false
+          },
           {
             "type": "identifier",
             "named": true
@@ -4360,6 +4480,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "system_version",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "translation_unit",
@@ -4607,6 +4732,18 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "_Bool",
+            "named": false
+          },
+          {
+            "type": "_Complex",
+            "named": false
+          },
+          {
+            "type": "_Imaginary",
+            "named": false
+          },
           {
             "type": "protocol_type_specifier",
             "named": true
@@ -4891,6 +5028,10 @@
     "named": false
   },
   {
+    "type": "@available",
+    "named": false
+  },
+  {
     "type": "@class",
     "named": false
   },
@@ -4983,6 +5124,30 @@
     "named": false
   },
   {
+    "type": "_Bool",
+    "named": false
+  },
+  {
+    "type": "_Complex",
+    "named": false
+  },
+  {
+    "type": "_Imaginary",
+    "named": false
+  },
+  {
+    "type": "_Nonnull",
+    "named": false
+  },
+  {
+    "type": "_Null_unspecified",
+    "named": false
+  },
+  {
+    "type": "_Nullable",
+    "named": false
+  },
+  {
     "type": "__attribute__",
     "named": false
   },
@@ -5007,7 +5172,31 @@
     "named": false
   },
   {
+    "type": "__nonnull",
+    "named": false
+  },
+  {
+    "type": "__null_unspecified",
+    "named": false
+  },
+  {
+    "type": "__nullable",
+    "named": false
+  },
+  {
+    "type": "__objc_no",
+    "named": false
+  },
+  {
+    "type": "__objc_yes",
+    "named": false
+  },
+  {
     "type": "__stdcall",
+    "named": false
+  },
+  {
+    "type": "__strong",
     "named": false
   },
   {
@@ -5020,6 +5209,10 @@
   },
   {
     "type": "__vectorcall",
+    "named": false
+  },
+  {
+    "type": "__weak",
     "named": false
   },
   {
@@ -5096,6 +5289,10 @@
   },
   {
     "type": "false",
+    "named": false
+  },
+  {
+    "type": "false",
     "named": true
   },
   {
@@ -5112,6 +5309,14 @@
   },
   {
     "type": "goto",
+    "named": false
+  },
+  {
+    "type": "iOS",
+    "named": false
+  },
+  {
+    "type": "iOSApplicationExtension",
     "named": false
   },
   {
@@ -5136,6 +5341,22 @@
   },
   {
     "type": "long",
+    "named": false
+  },
+  {
+    "type": "macCatalyst",
+    "named": false
+  },
+  {
+    "type": "macCatalystApplicationExtension",
+    "named": false
+  },
+  {
+    "type": "macOS",
+    "named": false
+  },
+  {
+    "type": "macOSApplicationExtension",
     "named": false
   },
   {
@@ -5263,6 +5484,10 @@
     "named": true
   },
   {
+    "type": "swift",
+    "named": false
+  },
+  {
     "type": "switch",
     "named": false
   },
@@ -5272,7 +5497,19 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "true",
     "named": true
+  },
+  {
+    "type": "tvOS",
+    "named": false
+  },
+  {
+    "type": "tvOSApplicationExtension",
+    "named": false
   },
   {
     "type": "type_identifier",
@@ -5308,6 +5545,14 @@
   },
   {
     "type": "volatile",
+    "named": false
+  },
+  {
+    "type": "watchOS",
+    "named": false
+  },
+  {
+    "type": "watchOSApplicationExtension",
     "named": false
   },
   {
