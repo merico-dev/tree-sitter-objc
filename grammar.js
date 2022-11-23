@@ -11,6 +11,7 @@ module.exports = grammar(C, {
     [$.union_specifier],
     [$.enum_specifier],
     [$.block_declarator, $.abstract_block_declarator],
+    [$.type_descriptor],
   ]),
 
   rules: {
@@ -23,7 +24,8 @@ module.exports = grammar(C, {
       $.protocol_declaration,
       $.protocol_declaration_list,
       $.class_declaration_list,
-      $._import
+      $._import,
+      $.demarcation,
     ),
 
     _name: $ => field('name', $.identifier),
@@ -118,7 +120,8 @@ module.exports = grammar(C, {
       $.declaration,
       $.method_declaration,
       $.property_declaration,
-      $.preproc_call
+      $.preproc_call,
+      $.demarcation,
     ),
 
     method_declaration: $ => seq(
@@ -228,7 +231,8 @@ module.exports = grammar(C, {
 
     _non_case_statement: ($, original) => choice(
       original,
-      $.for_in_statement
+      $.for_in_statement,
+      $.autoreleasepool_statement,
     ),
 
     // Implementation
@@ -255,6 +259,7 @@ module.exports = grammar(C, {
       $.synthesize,
       $.dynamic,
       $.preproc_call,
+      $.demarcation,
     ),
 
     synthesize: $ => seq(
@@ -304,7 +309,10 @@ module.exports = grammar(C, {
     ),
 
     _method_type: $ => seq(
-      '(', $.type_descriptor ,')'
+      '(',
+      repeat1($.type_descriptor),
+      optional($._abstract_declarator),
+      ')'
     ),
 
     // Type specifiers
@@ -426,7 +434,25 @@ module.exports = grammar(C, {
     ),
 
     encode_expression: $ => seq(
-      '@encode', '(', $.identifier, ')'
+      '@encode', '(', $.type_descriptor, ')'
+    ),
+
+    autoreleasepool_statement: $ => seq(
+      '@autoreleasepool', $.compound_statement
+    ),
+
+    cast_expression: $ => prec(C.PREC.CAST, seq(
+      '(',
+      optional('__bridge'),
+      field('type', $.type_descriptor),
+      ')',
+      field('value', $._expression)
+    )),
+
+    argument_list: $ => seq(
+      '(',
+      commaSep(choice($._expression, $.type_descriptor)),
+      ')',
     ),
 
     // Add support for Blocks: Expression
@@ -476,6 +502,11 @@ module.exports = grammar(C, {
         $.array_literal,
         $.dictionary_literal,
       )
+    ),
+
+    demarcation: $ => choice(
+      'NS_ASSUME_NONNULL_BEGIN',
+      'NS_ASSUME_NONNULL_END',
     ),
 
     system_version: $ => choice(seq(choice(

@@ -216,6 +216,10 @@
     "named": true,
     "subtypes": [
       {
+        "type": "autoreleasepool_statement",
+        "named": true
+      },
+      {
         "type": "break_statement",
         "named": true
       },
@@ -517,6 +521,10 @@
         {
           "type": "preproc_defined",
           "named": true
+        },
+        {
+          "type": "type_descriptor",
+          "named": true
         }
       ]
     }
@@ -797,6 +805,21 @@
     }
   },
   {
+    "type": "autoreleasepool_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "compound_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "available_expression",
     "named": true,
     "fields": {},
@@ -1070,6 +1093,10 @@
           "named": true
         },
         {
+          "type": "autoreleasepool_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
@@ -1192,6 +1219,10 @@
           "named": true
         },
         {
+          "type": "demarcation",
+          "named": true
+        },
+        {
           "type": "dynamic",
           "named": true
         },
@@ -1255,6 +1286,10 @@
       "types": [
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -1333,6 +1368,10 @@
       "types": [
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -1415,6 +1454,10 @@
       "types": [
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -1551,6 +1594,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -1765,6 +1812,10 @@
           "named": true
         },
         {
+          "type": "demarcation",
+          "named": true
+        },
+        {
           "type": "function_definition",
           "named": true
         },
@@ -1818,6 +1869,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "demarcation",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "dictionary_literal",
@@ -1896,7 +1952,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "type_descriptor",
           "named": true
         }
       ]
@@ -2630,6 +2686,10 @@
             "named": false
           },
           {
+            "type": "_abstract_declarator",
+            "named": true
+          },
+          {
             "type": "type_descriptor",
             "named": true
           }
@@ -2804,6 +2864,10 @@
             "named": false
           },
           {
+            "type": "_abstract_declarator",
+            "named": true
+          },
+          {
             "type": "type_descriptor",
             "named": true
           }
@@ -2876,6 +2940,10 @@
           {
             "type": ")",
             "named": false
+          },
+          {
+            "type": "_abstract_declarator",
+            "named": true
           },
           {
             "type": "type_descriptor",
@@ -3403,6 +3471,10 @@
           "named": true
         },
         {
+          "type": "demarcation",
+          "named": true
+        },
+        {
           "type": "field_declaration",
           "named": true
         },
@@ -3503,6 +3575,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -3698,6 +3774,10 @@
           "named": true
         },
         {
+          "type": "demarcation",
+          "named": true
+        },
+        {
           "type": "field_declaration",
           "named": true
         },
@@ -3823,6 +3903,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -4066,6 +4150,10 @@
       "types": [
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -4528,6 +4616,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "demarcation",
           "named": true
         },
         {
@@ -5028,6 +5120,10 @@
     "named": false
   },
   {
+    "type": "@autoreleasepool",
+    "named": false
+  },
+  {
     "type": "@available",
     "named": false
   },
@@ -5085,6 +5181,14 @@
   },
   {
     "type": "L'",
+    "named": false
+  },
+  {
+    "type": "NS_ASSUME_NONNULL_BEGIN",
+    "named": false
+  },
+  {
+    "type": "NS_ASSUME_NONNULL_END",
     "named": false
   },
   {
@@ -5153,6 +5257,10 @@
   },
   {
     "type": "__based",
+    "named": false
+  },
+  {
+    "type": "__bridge",
     "named": false
   },
   {
@@ -5289,11 +5397,11 @@
   },
   {
     "type": "false",
-    "named": false
+    "named": true
   },
   {
     "type": "false",
-    "named": true
+    "named": false
   },
   {
     "type": "field_identifier",
