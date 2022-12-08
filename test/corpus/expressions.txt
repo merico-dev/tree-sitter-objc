@@ -1,6 +1,6 @@
-==================
+================================================================================
 Self
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -8,25 +8,21 @@ Self
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (self))))))
 
-            (self)
-
-          )))))
-
-
-==================
+================================================================================
 Message expression: super receiver
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -34,27 +30,23 @@ Message expression: super receiver
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (message_expression
+            receiver: (super)
+            selector: (identifier)))))))
 
-            (message_expression
-              receiver: (super)
-              selector: (identifier))
-
-          )))))
-
-
-==================
+================================================================================
 Message expression: keyword arguments
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -62,33 +54,29 @@ Message expression: keyword arguments
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (message_expression
+            receiver: (identifier)
+            selector: (keyword_argument_list
+              (keyword_argument
+                keyword: (identifier)
+                argument: (identifier))
+              (keyword_argument
+                keyword: (identifier)
+                argument: (identifier)))))))))
 
-            (message_expression
-              receiver: (identifier)
-              selector: (keyword_argument_list
-                (keyword_argument
-                  keyword: (identifier)
-                  argument: (identifier))
-                (keyword_argument
-                  keyword: (identifier)
-                  argument: (identifier))))
-
-          )))))
-
-
-==================
+================================================================================
 Message expression: anonymous keyword
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -96,29 +84,25 @@ Message expression: anonymous keyword
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (message_expression
+            receiver: (identifier)
+            selector: (keyword_argument_list
+              (keyword_argument
+                argument: (identifier)))))))))
 
-            (message_expression
-              receiver: (identifier)
-              selector: (keyword_argument_list
-                (keyword_argument
-                  argument: (identifier))))
-
-          )))))
-
-
-==================
+================================================================================
 Selector expression
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -126,28 +110,24 @@ Selector expression
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (selector_expression
+            (keyword_name
+              (identifier))
+            (keyword_name)))))))
 
-            (selector_expression
-              (keyword_name
-                (identifier))
-              (keyword_name))
-
-          )))))
-
-
-==================
+================================================================================
 Protocol expression
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -155,26 +135,22 @@ Protocol expression
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (protocol_expression
+            (identifier)))))))
 
-            (protocol_expression
-              (identifier))
-
-          )))))
-
-
-==================
+================================================================================
 Encode expression
-==================
+================================================================================
 
 @implementation ClassName
 - sel {
@@ -182,30 +158,27 @@ Encode expression
 }
 @end
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (class_implementation
     name: (identifier)
-      (method_definition
-        scope: (instance_scope)
-        selector: (identifier)
-        body: (compound_statement
-          (expression_statement
+    (method_definition
+      scope: (instance_scope)
+      selector: (identifier)
+      body: (compound_statement
+        (expression_statement
+          (encode_expression
+            (type_descriptor
+              type: (type_identifier))))))))
 
-            (encode_expression
-              (identifier))
-
-          )))))
-
-
-==================
+================================================================================
 At expression: At string literal
-==================
+================================================================================
 
 NSString * a = @"Test";
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (declaration
@@ -216,17 +189,16 @@ NSString * a = @"Test";
       value: (objc_at_expression
         (string_literal)))))
 
-
-==================
+================================================================================
 At expression: At number literal
-==================
+================================================================================
 
 NSNumber *fortyTwo = @42;
 NSNumber *fortyTwoUnsigned = @42U;
 NSNumber *fortyTwoLong = @42L;
 NSNumber *fortyTwoLongLong = @42LL;
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (declaration
@@ -258,14 +230,13 @@ NSNumber *fortyTwoLongLong = @42LL;
       value: (objc_at_expression
         (number_literal)))))
 
-
-==================
+================================================================================
 At expression: At char literal
-==================
+================================================================================
 
 NSNumber *theLetterZ = @'Z';
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (declaration
@@ -276,16 +247,15 @@ NSNumber *theLetterZ = @'Z';
       value: (objc_at_expression
         (char_literal)))))
 
-
-==================
+================================================================================
 At expression: At array literal
-==================
+================================================================================
 
 NSArray *elements = @[ @"H", @"He", @"O", @"C" ];
 NSArray *elements = @[  ];
 NSArray *elements = @[ @[ @"H" ], @"He" ];
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (declaration
@@ -324,16 +294,15 @@ NSArray *elements = @[ @[ @"H" ], @"He" ];
           (objc_at_expression
             (string_literal)))))))
 
-
-==================
+================================================================================
 At expression: At dictionary literal
-==================
+================================================================================
 
 NSDictionary *dictionary = @{
     @"key" : @[]
 };
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (declaration
@@ -348,10 +317,9 @@ NSDictionary *dictionary = @{
           value: (objc_at_expression
             (array_literal)))))))
 
-
-==================
+================================================================================
 For in statement
-==================
+================================================================================
 
 for (int a in b) {
   if ( a == 3 ) {
@@ -359,7 +327,7 @@ for (int a in b) {
   }
 }
 
----
+--------------------------------------------------------------------------------
 
 (translation_unit
   (for_in_statement
@@ -374,3 +342,139 @@ for (int a in b) {
             right: (number_literal)))
         consequence: (compound_statement
           (return_statement))))))
+
+================================================================================
+Encode expression with pointer as argument
+================================================================================
+
+char *buf1 = @encode(int **);
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (declaration
+    (primitive_type)
+    (init_declarator
+      (pointer_declarator
+        (identifier))
+      (encode_expression
+        (type_descriptor
+          (primitive_type)
+          (abstract_pointer_declarator
+            (abstract_pointer_declarator)))))))
+
+================================================================================
+Call expression
+================================================================================
+
+foo(args, char*);
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (expression_statement
+    (call_expression
+      (identifier)
+      (argument_list
+        (identifier)
+        (type_descriptor
+          (primitive_type)
+          (abstract_pointer_declarator))))))
+
+================================================================================
+Keyword selector
+================================================================================
+
+@implementation ClassName
+- (Foo *)foo:(Bar * __autoreleasing *)foo {}
+@end
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (class_implementation
+    (identifier)
+    (method_definition
+      (instance_scope)
+      (type_descriptor
+        (type_identifier)
+        (abstract_pointer_declarator))
+      (keyword_selector
+        (keyword_declarator
+          (identifier)
+          (type_descriptor
+            (type_identifier)
+            (abstract_pointer_declarator))
+          (type_descriptor
+            (type_identifier)
+            (abstract_pointer_declarator))
+          (identifier)))
+      (compound_statement))))
+
+================================================================================
+Autoreleasepool statement
+================================================================================
+
+@autoreleasepool {
+    block(context, argc, argv);
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (autoreleasepool_statement
+    (compound_statement
+      (expression_statement
+        (call_expression
+          (identifier)
+          (argument_list
+            (identifier)
+            (identifier)
+            (identifier)))))))
+
+================================================================================
+Bridge cast
+================================================================================
+
+(__bridge void *)(self);
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (expression_statement
+    (cast_expression
+      (type_descriptor
+        (primitive_type)
+        (abstract_pointer_declarator))
+      (parenthesized_expression
+        (self)))))
+
+================================================================================
+Bridge cast
+================================================================================
+
+(__bridge void *)(self);
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (expression_statement
+    (cast_expression
+      (type_descriptor
+        (primitive_type)
+        (abstract_pointer_declarator))
+      (parenthesized_expression
+        (self)))))
+
+================================================================================
+Demarcation
+================================================================================
+
+NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_END
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (demarcation)
+  (demarcation))
