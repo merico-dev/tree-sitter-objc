@@ -187,7 +187,8 @@ NSString * a = @"Test";
       declarator: (pointer_declarator
         declarator: (identifier))
       value: (objc_at_expression
-        (string_literal)))))
+        (string_literal
+          (string_content))))))
 
 ================================================================================
 At expression: At number literal
@@ -245,7 +246,8 @@ NSNumber *theLetterZ = @'Z';
       declarator: (pointer_declarator
         declarator: (identifier))
       value: (objc_at_expression
-        (char_literal)))))
+        (char_literal
+          (character))))))
 
 ================================================================================
 At expression: At array literal
@@ -266,13 +268,17 @@ NSArray *elements = @[ @[ @"H" ], @"He" ];
       value: (objc_at_expression
         (array_literal
           (objc_at_expression
-            (string_literal))
+            (string_literal
+              (string_content)))
           (objc_at_expression
-            (string_literal))
+            (string_literal
+              (string_content)))
           (objc_at_expression
-            (string_literal))
+            (string_literal
+              (string_content)))
           (objc_at_expression
-            (string_literal))))))
+            (string_literal
+              (string_content)))))))
   (declaration
     type: (type_identifier)
     declarator: (init_declarator
@@ -290,9 +296,11 @@ NSArray *elements = @[ @[ @"H" ], @"He" ];
           (objc_at_expression
             (array_literal
               (objc_at_expression
-                (string_literal))))
+                (string_literal
+                  (string_content)))))
           (objc_at_expression
-            (string_literal)))))))
+            (string_literal
+              (string_content))))))))
 
 ================================================================================
 At expression: At dictionary literal
@@ -313,7 +321,8 @@ NSDictionary *dictionary = @{
       value: (objc_at_expression
         (dictionary_literal
           key: (objc_at_expression
-            (string_literal))
+            (string_literal
+              (string_content)))
           value: (objc_at_expression
             (array_literal)))))))
 
